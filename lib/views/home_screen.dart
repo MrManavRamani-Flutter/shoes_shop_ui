@@ -1,68 +1,81 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+// List of Category Images......
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+  'assets/images/img_7.png',
+  'assets/images/img_9.png',
+  'assets/images/img_3.png',
+  'assets/images/img_4.png',
+  'assets/images/img_5.png',
+  'assets/images/img_6.png',
 ];
 
-final List<Widget> imageSliders =
-    imgList.map((item) => getSliderImage(item)).toList();
+// Category List :
+List<Map<String, dynamic>> categoryList = [
+  {'cat': 'Mobile', 'icon': ''},
+  {'cat': 'Pantry', 'icon': ''},
+  {'cat': 'Fashion', 'icon': ''},
+  {'cat': 'Electronics', 'icon': ''},
+];
 
-Widget getSliderImage(String item) {
-  return Container(
-    margin: const EdgeInsets.all(5.0),
-    child: ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-      child: Stack(
-        children: [
-          Container(
-            color: Colors.red,
-          ),
-          const Align(
-            alignment: Alignment(-0.8, 0),
-            child: CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.greenAccent,
-            ),
-          ),
-          // Image.network(item, fit: BoxFit.cover, width: 1500.0),
-          // Positioned(
-          //   bottom: 0.0,
-          //   left: 0.0,
-          //   right: 0.0,
-          //   child: Container(
-          //     decoration: const BoxDecoration(
-          //       gradient: LinearGradient(
-          //         colors: [
-          //           Color.fromARGB(200, 0, 0, 0),
-          //           Color.fromARGB(0, 0, 0, 0)
-          //         ],
-          //         begin: Alignment.bottomCenter,
-          //         end: Alignment.topCenter,
-          //       ),
-          //     ),
-          //     padding:
-          //         const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          //     child: Text(
-          //       'No. ${imgList.indexOf(item)} image',
-          //       style: const TextStyle(
-          //         color: Colors.white,
-          //         fontSize: 20.0,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-        ],
-      ),
-    ),
-  );
-}
+// List of map of Data About Products..
+List<Map<String, dynamic>> productList = [
+  {
+    'imageUrl': imgList[0],
+    'color': Colors.brown,
+    'price': 99.99,
+    'name': 'Product 1',
+    'small desc': 'Description of Product 1',
+    'mrp': 129.99,
+    'rate': 4.5,
+  },
+  {
+    'imageUrl': imgList[1],
+    'color': Colors.lightBlue,
+    'price': 79.99,
+    'name': 'Product 2',
+    'small desc': 'Description of Product 2',
+    'mrp': 99.99,
+    'rate': 4.2,
+  },
+  {
+    'imageUrl': imgList[2],
+    'color': Colors.pinkAccent,
+    'price': 49.99,
+    'name': 'Product 3',
+    'small desc': 'Description of Product 3',
+    'mrp': 59.99,
+    'rate': 4.0,
+  },
+  {
+    'imageUrl': imgList[3],
+    'color': Colors.redAccent,
+    'price': 149.99,
+    'name': 'Product 4',
+    'small desc': 'Description of Product 4',
+    'mrp': 199.99,
+    'rate': 4.8,
+  },
+  {
+    'imageUrl': imgList[4],
+    'color': Colors.blue,
+    'price': 39.99,
+    'name': 'Product 5',
+    'small desc': 'Description of Product 5',
+    'mrp': 49.99,
+    'rate': 4.1,
+  },
+  {
+    'imageUrl': imgList[5],
+    'color': Colors.purpleAccent,
+    'price': 89.99,
+    'name': 'Product 6',
+    'small desc': 'Description of Product 6',
+    'mrp': 109.99,
+    'rate': 4.3,
+  },
+];
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -103,7 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Container(
+          // Slider Design
+          SizedBox(
             height: 150,
             width: double.infinity,
             child: CarouselSlider(
@@ -117,49 +131,114 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ...categoryList.map(
+                  (e) => const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-//-------------------------------------
+// Set values in Function Image and Colors pass in Function
+final List<Widget> imageSliders = productList
+    .map((item) => getSliderImage(item['imageUrl'], item['color']))
+    .toList();
 
-//     Container(
-//   margin: const EdgeInsets.all(5.0),
-//   child: ClipRRect(
-//     borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-//     child: Stack(
-//       children: [
-//         Image.network(item, fit: BoxFit.cover, width: 1000.0),
-//         Positioned(
-//           bottom: 0.0,
-//           left: 0.0,
-//           right: 0.0,
-//           child: Container(
-//             decoration: const BoxDecoration(
-//               gradient: LinearGradient(
-//                 colors: [
-//                   Color.fromARGB(200, 0, 0, 0),
-//                   Color.fromARGB(0, 0, 0, 0)
-//                 ],
-//                 begin: Alignment.bottomCenter,
-//                 end: Alignment.topCenter,
-//               ),
-//             ),
-//             padding: const EdgeInsets.symmetric(
-//                 vertical: 10.0, horizontal: 20.0),
-//             child: Text(
-//               'No. ${imgList.indexOf(item)} image',
-//               style: const TextStyle(
-//                 color: Colors.white,
-//                 fontSize: 20.0,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ),
-//         ),
-//       ],
-//     ),
-//   ),
-// ),
+// Slider Design
+Widget getSliderImage(String item, Color bgColor) {
+  return Padding(
+    padding: const EdgeInsets.all(5.0),
+    child: ClipRRect(
+      clipBehavior: Clip.antiAlias,
+      borderRadius: const BorderRadius.all(
+        Radius.circular(10.0),
+      ),
+      child: Container(
+        color: bgColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.white,
+                foregroundImage: AssetImage(item),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 10,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Get upto 60% offer",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "Buy what you want to the product purchase to your own",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      width: 110,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2,
+                        ),
+                        borderRadius: const BorderRadius.horizontal(
+                          left: Radius.circular(30),
+                          right: Radius.circular(30),
+                        ),
+                      ),
+                      child: const Text(
+                        "Buy now",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
