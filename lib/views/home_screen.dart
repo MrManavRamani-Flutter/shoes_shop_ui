@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shoes_shop/views/favorite_screen.dart';
-import 'package:shoes_shop/views/products_screen.dart';
+import 'package:shoes_shop/views/product_detail.dart';
 
 // List of Category Images
 final List<String> imgList = [
@@ -28,7 +27,7 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.brown,
     'price': 99.99,
     'name': 'Product 1',
-    'small desc': 'Description of Product 1',
+    'smallDesc': 'Description of Product 1',
     'mrp': 129.99,
     'rate': 4.5,
   },
@@ -37,7 +36,7 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.lightBlue,
     'price': 79.99,
     'name': 'Product 2',
-    'small desc': 'Description of Product 2',
+    'smallDesc': 'Description of Product 2',
     'mrp': 99.99,
     'rate': 4.2,
   },
@@ -46,7 +45,7 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.pinkAccent,
     'price': 49.99,
     'name': 'Product 3',
-    'small desc': 'Description of Product 3',
+    'smallDesc': 'Description of Product 3',
     'mrp': 59.99,
     'rate': 4.0,
   },
@@ -55,7 +54,7 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.redAccent,
     'price': 149.99,
     'name': 'Product 4',
-    'small desc': 'Description of Product 4',
+    'smallDesc': 'Description of Product 4',
     'mrp': 199.99,
     'rate': 4.8,
   },
@@ -64,7 +63,7 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.blue,
     'price': 39.99,
     'name': 'Product 5',
-    'small desc': 'Description of Product 5',
+    'smallDesc': 'Description of Product 5',
     'mrp': 49.99,
     'rate': 4.1,
   },
@@ -73,83 +72,11 @@ List<Map<String, dynamic>> productList = [
     'color': Colors.purpleAccent,
     'price': 89.99,
     'name': 'Product 6',
-    'small desc': 'Description of Product 6',
+    'smallDesc': 'Description of Product 6',
     'mrp': 109.99,
     'rate': 4.3,
   },
 ];
-
-class ListScreen extends StatefulWidget {
-  const ListScreen({super.key});
-
-  @override
-  ListScreenState createState() => ListScreenState();
-}
-
-class ListScreenState extends State<ListScreen> {
-  int _selectedIndex = 0; // Track the selected tab
-
-  // List of widgets for each tab
-  final List<Widget> _pages = [
-    const HomeScreen(),
-    const RewardScreen(),
-    FavoriteScreen(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_selectedIndex], // Display the selected page
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Reward',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class RewardScreen extends StatelessWidget {
-  const RewardScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Reward Screen'),
-    );
-  }
-}
-
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Favorites Screen'),
-    );
-  }
-}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -267,7 +194,14 @@ class HomeScreenState extends State<HomeScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ProductListScreen(),
+                                      builder: (context) => ProductDetail(
+                                        name: item['name'],
+                                        imageUrl: item['imageUrl'],
+                                        price: item['price'],
+                                        mrp: item['mrp'],
+                                        rate: item['rate'],
+                                        smallDesc: item['smallDesc'],
+                                      ),
                                     ),
                                   );
                                 },
@@ -283,21 +217,6 @@ class HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ),
-                              // const SizedBox(height: 10),
-                              // Text(
-                              //   item['name'],
-                              //   style: const TextStyle(
-                              //     fontSize: 18,
-                              //     fontWeight: FontWeight.bold,
-                              //   ),
-                              // ),
-                              // Text(
-                              //   '\$${item['price']}',
-                              //   style: const TextStyle(
-                              //     fontSize: 16,
-                              //     color: Colors.grey,
-                              //   ),
-                              // ),
                             ],
                           ),
                         );
@@ -330,7 +249,14 @@ class HomeScreenState extends State<HomeScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ProductListScreen(),
+                                      builder: (context) => ProductDetail(
+                                        name: item['name'],
+                                        imageUrl: item['imageUrl'],
+                                        price: item['price'],
+                                        mrp: item['mrp'],
+                                        rate: item['rate'],
+                                        smallDesc: item['smallDesc'],
+                                      ),
                                     ),
                                   );
                                 },
@@ -346,21 +272,6 @@ class HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ),
-                              // const SizedBox(height: 10),
-                              // Text(
-                              //   item['name'],
-                              //   style: const TextStyle(
-                              //     fontSize: 18,
-                              //     fontWeight: FontWeight.bold,
-                              //   ),
-                              // ),
-                              // Text(
-                              //   '\$${item['price']}',
-                              //   style: const TextStyle(
-                              //     fontSize: 16,
-                              //     color: Colors.grey,
-                              //   ),
-                              // ),
                             ],
                           ),
                         );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> productList = [
+  final List<Map<String, dynamic>> productFavList = [
     {
       'name': 'Nike air zoom vimero',
       'imageUrl': 'assets/images/img_4.png',
@@ -31,13 +31,18 @@ class FavoriteScreen extends StatelessWidget {
       'rating': 4.5,
     },
   ];
-
   FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed('/');
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
         title: const Text('Favorite'),
         centerTitle: true,
         actions: [
@@ -76,9 +81,9 @@ class FavoriteScreen extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: productList.length,
+        itemCount: productFavList.length,
         itemBuilder: (context, index) {
-          final item = productList[index];
+          final item = productFavList[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Card(

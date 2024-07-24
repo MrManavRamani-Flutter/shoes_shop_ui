@@ -20,9 +20,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.blue,
-      body: Center(
+    return Scaffold(
+      backgroundColor: Colors.blue.shade50,
+      body: const Center(
         child: Image(
           image: AssetImage('assets/logo/logo_2.png'),
           fit: BoxFit.fill,
