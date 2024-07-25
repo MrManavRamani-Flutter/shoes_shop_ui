@@ -125,12 +125,12 @@ class HomeScreenState extends State<HomeScreen> {
             ),
             // Slider Design
             SizedBox(
-              height: 180,
+              height: 150,
               width: double.infinity,
               child: CarouselSlider(
                 items: imageSliders,
                 options: CarouselOptions(
-                  aspectRatio: 2.0,
+                  aspectRatio: 1,
                   enlargeCenterPage: true,
                   enableInfiniteScroll: false,
                   autoPlay: true,
@@ -143,12 +143,13 @@ class HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: categoryList.map((e) {
                   return Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding:
+                        const EdgeInsets.only(left: 18.0, right: 18, top: 18),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 30,
-                          backgroundColor: Colors.greenAccent,
+                          backgroundColor: Colors.blue.shade50,
                           child: Icon(
                             e['icon'],
                             color: Colors.blue,
@@ -171,12 +172,29 @@ class HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Most Popular',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  const Row(
+                    children: [
+                      Text(
+                        'Most Popular',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        'View All',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.deepOrange,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: Colors.deepOrange,
+                        size: 17,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
@@ -224,12 +242,16 @@ class HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   // const SizedBox(height: 30),
-                  const Text(
-                    'Collections',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    children: [
+                      const Text(
+                        'Collections',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
@@ -295,84 +317,78 @@ final List<Widget> imageSliders = productList
 
 // Slider Design
 Widget getSliderImage(String item, Color bgColor) {
-  return Padding(
-    padding: const EdgeInsets.all(5.0),
-    child: ClipRRect(
-      clipBehavior: Clip.antiAlias,
-      borderRadius: const BorderRadius.all(
-        Radius.circular(10.0),
-      ),
-      child: Container(
-        color: bgColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.white,
-                foregroundImage: AssetImage(item),
-              ),
+  return ClipRRect(
+    clipBehavior: Clip.antiAlias,
+    borderRadius: const BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+    child: Container(
+      color: bgColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: CircleAvatar(
+              radius: 55,
+              backgroundColor: Colors.white,
+              foregroundImage: AssetImage(item),
             ),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 10,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Get up to 60% offer",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    // fontWeight: FontWeight.bold,
+                  ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "Get up to 60% offer",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "Buy what you want to the product purchase to your own",
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Container(
-                      width: 100,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 7,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 2,
-                        ),
-                        borderRadius: const BorderRadius.horizontal(
-                          left: Radius.circular(30),
-                          right: Radius.circular(30),
-                        ),
-                      ),
-                      child: const Text(
-                        "Buy now",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 10),
+                const Text(
+                  "Buy what you want to the product purchase to your own",
+                  style: TextStyle(
+                    fontSize: 13.5,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
+                Container(
+                  width: 100,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 7,
+                  ),
+                  margin: const EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                    borderRadius: const BorderRadius.horizontal(
+                      left: Radius.circular(30),
+                      right: Radius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    "Buy now",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );

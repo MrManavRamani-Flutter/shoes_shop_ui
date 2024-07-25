@@ -54,17 +54,17 @@ class ListScreenState extends State<ListScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            activeIcon: Icon(Icons.home, color: Colors.blue),
+            // activeIcon: Icon(Icons.home, color: Colors.blue),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
             label: 'Reward',
-            activeIcon: Icon(Icons.card_giftcard, color: Colors.blue),
+            // activeIcon: Icon(Icons.card_giftcard, color: Colors.blue),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
-            activeIcon: Icon(Icons.favorite, color: Colors.blue),
+            // activeIcon: Icon(Icons.favorite, color: Colors.blue),
           ),
         ],
         currentIndex: _selectedIndex,
