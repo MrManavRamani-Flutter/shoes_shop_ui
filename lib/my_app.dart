@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_shop/views/favorite_screen.dart';
-import 'package:shoes_shop/views/home_screen.dart';
-import 'package:shoes_shop/views/reward_screen.dart';
-import 'package:shoes_shop/views/welcome_screen.dart';
+
+import 'screens/favorite_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/reward_screen.dart';
+import 'screens/welcome_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shoes_shop/views/product_detail.dart';
+import 'package:shoes_shop/screens/product_detail_screen.dart';
 
 // List of Category Images
 final List<String> imgList = [
