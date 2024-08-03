@@ -87,7 +87,7 @@ class ProductDetail extends StatelessWidget {
                           ),
                           image: DecorationImage(
                             image: AssetImage(imageUrl),
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         child: IconButton(
@@ -112,36 +112,36 @@ class ProductDetail extends StatelessWidget {
                             Expanded(
                               child: Row(
                                 children: [
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(
                                     "\$$price",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Text(
                                     "MRP \$$mrp",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
-                                  SizedBox(width: 5),
-                                  Spacer(),
+                                  const SizedBox(width: 5),
+                                  const Spacer(),
                                   Text(
                                     "$rate",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.grey,
                                       fontSize: 20,
                                     ),
                                   ),
-                                  SizedBox(width: 10),
-                                  Icon(
+                                  const SizedBox(width: 10),
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.orange,
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                 ],
                               ),
                             ),
@@ -149,16 +149,16 @@ class ProductDetail extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       smallDesc,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.grey,
                                       ),
                                     ),
                                   ),
-                                  Spacer(),
-                                  Padding(
+                                  const Spacer(),
+                                  const Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
                                       "230 ratings",

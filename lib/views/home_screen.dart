@@ -102,7 +102,11 @@ class HomeScreenState extends State<HomeScreen> {
         ),
         title: const Text(
           "hubjoy",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
       ),
@@ -166,7 +170,7 @@ class HomeScreenState extends State<HomeScreen> {
                 }).toList(),
               ),
             ),
-            // Products list :
+            // Products list
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -177,7 +181,7 @@ class HomeScreenState extends State<HomeScreen> {
                       Text(
                         'Most Popular',
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -185,7 +189,7 @@ class HomeScreenState extends State<HomeScreen> {
                       Text(
                         'View All',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Colors.deepOrange,
                         ),
                       ),
@@ -241,15 +245,33 @@ class HomeScreenState extends State<HomeScreen> {
                       }).toList(),
                     ),
                   ),
-                  // const SizedBox(height: 30),
+                  const SizedBox(height: 5),
                   Row(
                     children: [
                       const Text(
                         'Collections',
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
+                      ),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () {
+                          // Navigate to the collections page or perform an action
+                        },
+                        child: const Text(
+                          'View All',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.deepOrange,
+                          ),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: Colors.deepOrange,
+                        size: 17,
                       ),
                     ],
                   ),
@@ -260,9 +282,7 @@ class HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       children: productList.reversed.map((item) {
                         return Padding(
-                          padding: const EdgeInsets.only(
-                            right: 15,
-                          ),
+                          padding: const EdgeInsets.only(right: 15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -343,18 +363,18 @@ Widget getSliderImage(String item, Color bgColor) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Get up to 60% offer",
+                  "Get up to 60% off",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
-                    // fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  "Buy what you want to the product purchase to your own",
+                  "Buy what you want and get exclusive discounts!",
                   style: TextStyle(
-                    fontSize: 13.5,
+                    fontSize: 14,
                     color: Colors.white,
                   ),
                 ),
