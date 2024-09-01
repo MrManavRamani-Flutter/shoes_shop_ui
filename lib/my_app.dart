@@ -33,7 +33,6 @@ class ListScreen extends StatefulWidget {
 class ListScreenState extends State<ListScreen> {
   int _selectedIndex = 0; // Track the selected tab
 
-  // List of widgets for each tab
   final List<Widget> _pages = [
     const HomeScreen(),
     const RewardScreen(),
@@ -51,7 +50,8 @@ class ListScreenState extends State<ListScreen> {
     return Scaffold(
       body: _pages[_selectedIndex], // Display the selected page
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        backgroundColor: Colors.blue.shade50,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',

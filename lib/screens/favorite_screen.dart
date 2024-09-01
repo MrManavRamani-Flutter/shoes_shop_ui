@@ -36,7 +36,9 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
+        backgroundColor: Colors.blue.shade50,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pushReplacementNamed('/');
